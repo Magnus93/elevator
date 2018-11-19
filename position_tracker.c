@@ -15,12 +15,20 @@
 
 #include "assert.h"
 
+
 static void positionTrackerTask(void *params) {
-
-  // ...
-
-  vTaskDelay(portMAX_DELAY);
-
+	PositionTracker *tracker = (PositionTracker *) params; 
+	int lastPinValue = tracker->pin;
+	for(;;) {
+		if(tracker->pin != lastPinValue) {
+			if(tracker->direction == Up) {
+				tracker->position++;
+			} else if(tracker->direction == Down) {
+				tracker->position--;
+			}
+		}
+		vTaskDelay(tracker->pollingPeriod);
+	}
 }
 
 void setupPositionTracker(PositionTracker *tracker,
@@ -43,16 +51,10 @@ void setupPositionTracker(PositionTracker *tracker,
 }
 
 void setDirection(PositionTracker *tracker, Direction dir) {
-
-  // ...
-
+	tracker->direction = dir;
 }
 
 s32 getPosition(PositionTracker *tracker) {
-
-  // ...
-
-  return 0;
-
+	return tracker->position;
 }
 

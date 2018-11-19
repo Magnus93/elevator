@@ -10,7 +10,7 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
-
+#include <stdio.h>
 #include "pin_listener.h"
 #include "assert.h"
 
@@ -19,6 +19,7 @@ static void pollPin(PinListener *listener,
                     xQueueHandle pinEventQueue) {
 	if (listener->pin == GPIO_Pin_0) { // check floor 1 button
 		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_0);
+		printf("floor 1 button pressed");
 	} else 	if (listener->pin == GPIO_Pin_1) { // check floor 2 button
 		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_1);
 	} else 	if (listener->pin == GPIO_Pin_2) { // check floor 2 button

@@ -147,13 +147,14 @@ void setCarMotorStopped(u8 stopped) {
  */
 int main( void )
 {
+	
   prvSetupHardware();
-
+	
   setupInputModule();
   setupActuatorModule();
   setupPlanner(1);
   setupSafety(3);
-
+  // setCarTargetPosition(50);
   printf("Setup completed\n");  // this is redirected to USART 1
 
   vTaskStartScheduler();
