@@ -154,11 +154,11 @@ int main( void )
   setupActuatorModule();
   setupPlanner(1);
   setupSafety(3);
-  // setCarTargetPosition(50);
+  setCarTargetPosition(10);
   printf("Setup completed\n");  // this is redirected to USART 1
 
   vTaskStartScheduler();
-  assert(0);
+  assert( 0);
   return 0;                 // not reachable
 }
 /*-----------------------------------------------------------*/

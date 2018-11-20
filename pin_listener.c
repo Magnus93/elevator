@@ -19,13 +19,24 @@ static void pollPin(PinListener *listener,
                     xQueueHandle pinEventQueue) {
 	if (listener->pin == GPIO_Pin_0) { // check floor 1 button
 		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_0);
-		printf("floor 1 button pressed");
+		if (listener->status) {
+			printf("Pin 0 is %d \n", listener->status);
+		}
 	} else 	if (listener->pin == GPIO_Pin_1) { // check floor 2 button
 		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_1);
+		if (listener->status) {
+			printf("Pin 1 is %d \n", listener->status);
+		}
 	} else 	if (listener->pin == GPIO_Pin_2) { // check floor 2 button
 		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_2);
+		if (listener->status) {
+			printf("Pin 2 is %d \n", listener->status);
+		}
 	} else 	if (listener->pin == GPIO_Pin_3) { // check stop button
 		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_3);
+		if (listener->status) {
+			printf("Pin 3 is %d \n", listener->status);
+		}
 	} else 	if (listener->pin == GPIO_Pin_7) { // check at floor sensor
 		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_7);
 	} else 	if (listener->pin == GPIO_Pin_8) { // check door sensor 

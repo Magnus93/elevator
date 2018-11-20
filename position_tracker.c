@@ -10,7 +10,7 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
-
+#include <stdio.h>
 #include "position_tracker.h"
 
 #include "assert.h"
@@ -18,15 +18,19 @@
 
 static void positionTrackerTask(void *params) {
 	PositionTracker *tracker = (PositionTracker *) params; 
-	int lastPinValue = tracker->pin;
+	int lastPinValue;
+	int pinValue;
 	for(;;) {
-		if(tracker->pin != lastPinValue) {
+		pinValue = GPIO_ReadInputDataBit(tracker->gpio, tracker->pin);
+		if(pinValue != lastPinValue && pinValue == 1) {
 			if(tracker->direction == Up) {
 				tracker->position++;
 			} else if(tracker->direction == Down) {
 				tracker->position--;
 			}
+			printf("curret pos: %lu\n", tracker->position);
 		}
+		lastPinValue = pinValue;
 		vTaskDelay(tracker->pollingPeriod);
 	}
 }
