@@ -164,7 +164,7 @@ int main( void )
 /*-----------------------------------------------------------*/
 
 void assert_failed(u8* file, u32 line) {
-  printf("ASSERTION FAILURE: %s:%d\n", file, line);
+  printf("ASSERTION FAILURE: %s:%lu\n", file, line);
 }
 
 
