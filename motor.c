@@ -49,19 +49,19 @@ static s32 min(s32 a, s32 b) {
 static setCompare(TIM_TypeDef* TIMx, u16 channel, u16 value) {
   switch (channel) {
     case TIM_Channel_1:
-	  TIM_SetCompare1(TIMx, value);
-	  break;
+			TIM_SetCompare1(TIMx, value);
+			break;
     case TIM_Channel_2:
-	  TIM_SetCompare2(TIMx, value);
-	  break;
+			TIM_SetCompare2(TIMx, value);
+			break;
     case TIM_Channel_3:
-	  TIM_SetCompare3(TIMx, value);
-	  break;
+			TIM_SetCompare3(TIMx, value);
+			break;
     case TIM_Channel_4:
-	  TIM_SetCompare4(TIMx, value);
-	  break;
-	default:
-	  assert(0);
+			TIM_SetCompare4(TIMx, value);
+			break;
+		default:
+			assert(0);
 	  break;
   }
 }
