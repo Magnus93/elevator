@@ -58,15 +58,21 @@ static void safetyTask(void *params) {
 	
 	
   for (;;) {
-    // Environment assumption 1: the doors can only be opened if
-		//                           the elevator is at a floor and
-    //                           the motor is not active
+		
+		// Setting up variables to calculate speed
 		
 		head_index = (head_index+1) % BUFF_SIZE;				// roll index
 		position_buffer[head_index] = getCarPosition();   // set head of buffer
 		pos = position_buffer[(head_index)% BUFF_SIZE];					// get current position
 		prev_pos = position_buffer[(head_index+1)% BUFF_SIZE];    // the position 200ms ago
 		speed = (ABS(pos-prev_pos)*1000/prev_time_ms); 	// speed in cm/s 
+		
+		
+		
+    // Environment assumption 1: the doors can only be opened if
+		//                           the elevator is at a floor and
+    //                           the motor is not active
+	
 		
 		check((AT_FLOOR && MOTOR_STOPPED) || DOORS_CLOSED, "env1");
 
@@ -84,13 +90,13 @@ static void safetyTask(void *params) {
 		// fill in your own environment assumption 4
 		check(1, "env4");
 
-    // System requirement 1: if the stop button is pressed, the motor is
+    // Safety requirement 1: if the stop button is pressed, the motor is
 	//                       stopped within 1s
 
 	if (STOP_PRESSED) {
 	  if (timeSinceStopPressed < 0)
 	    timeSinceStopPressed = 0;
-      else
+    else
 	    timeSinceStopPressed += POLL_TIME;
 
       check(timeSinceStopPressed * portTICK_RATE_MS <= 1000 || MOTOR_STOPPED,
@@ -99,19 +105,24 @@ static void safetyTask(void *params) {
 	  timeSinceStopPressed = -1;
 	}
 
-    // System requirement 2: the motor signals for upwards and downwards
+    // Safety requirement 2: the motor signals for upwards and downwards
 	//                       movement are not active at the same time
 
     check(!MOTOR_UPWARD || !MOTOR_DOWNWARD,
           "req2");
 
-	// fill in safety requirement 3
-	check(1, "req3");
+	// Safety requirement 3 : the elevator may not pass the end positions,
+	//												that is, go through the roof or the floor
+	check(0 <= pos && pos <= 800, "req3");
 
-	// fill in safety requirement 4
+	// Safety requirement 4 : a moving elevator halts only if the stop button
+	//												is pressed or the elevator has arrived at a floor
+	// check(speed != 0 && (STOP_PRESSED || AT_FLOOR), "req4");
 	check(1, "req4");
-
-	// fill in safety requirement 5
+	
+	// Safety requirement 5 : once the elevator has stopped at a floor, it will
+	//												wait for at least 1 s before it continues to another 
+	//												floor
 	check(1, "req5");
 
 	// fill in safety requirement 6
