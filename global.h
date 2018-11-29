@@ -66,6 +66,6 @@ void setCarTargetPosition(s32 target);
 void setCarMotorStopped(u8 stopped);
 
 /* Get if motor set to stop*/
-u8 getCarMotorStopped();
+u8 getCarMotorStopped(void);
 
 #endif

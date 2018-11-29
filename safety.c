@@ -115,13 +115,8 @@ static void safetyTask(void *params) {
 
 	// Safety requirement 4 : a moving elevator halts only if the stop button
 	//												is pressed or the elevator has arrived at a floor
-	if (getCarMotorStopped()) {
-		printf("Stopped");
-	}
 	check(!getCarMotorStopped() || (AT_FLOOR || STOP_PRESSED), "req4");
-	
-	// check(1, "req4");
-	
+		
 	// Safety requirement 5 : once the elevator has stopped at a floor, it will
 	//												wait for at least 1 s before it continues to another 
 	//												floor
