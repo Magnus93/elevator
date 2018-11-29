@@ -21,7 +21,7 @@
 
 #define ABS(a) (a>=0 ? a : -a)
 #define POLL_TIME (10 / portTICK_RATE_MS)
-#define BUFF_SIZE 20
+#define BUFF_SIZE 50
 
 #define MOTOR_UPWARD   (TIM3->CCR1)
 #define MOTOR_DOWNWARD (TIM3->CCR2)
@@ -36,10 +36,10 @@
 static portTickType xLastWakeTime;
 
 s32 position_buffer[BUFF_SIZE];
-int head_index = 0; // head of the buffer
+int pos_head_index = 0;// head of the position buffer
 s32 prev_pos, pos;
 int speed;
-s32 prev_time_ms = 200;
+s32 prev_time_ms = 500;
 
 static void check(u8 assertion, char *name) {
   if (!assertion) {
@@ -61,34 +61,32 @@ static void safetyTask(void *params) {
 		
 		// Setting up variables to calculate speed
 		
-		head_index = (head_index+1) % BUFF_SIZE;				// roll index
-		position_buffer[head_index] = getCarPosition();   // set head of buffer
-		pos = position_buffer[(head_index)% BUFF_SIZE];					// get current position
-		prev_pos = position_buffer[(head_index+1)% BUFF_SIZE];    // the position 200ms ago
-		speed = (ABS(pos-prev_pos)*1000/prev_time_ms); 	// speed in cm/s 
-		
-		
+		pos_head_index = (pos_head_index+1) % BUFF_SIZE;			// roll index
+		position_buffer[pos_head_index] = getCarPosition();   // set head of buffer
+		pos = position_buffer[(pos_head_index)% BUFF_SIZE];					// get current position
+		prev_pos = position_buffer[(pos_head_index+1)% BUFF_SIZE];    // the position 200ms ago
+		speed = (ABS(pos-prev_pos)*1000/prev_time_ms);
 		
     // Environment assumption 1: the doors can only be opened if
 		//                           the elevator is at a floor and
     //                           the motor is not active
-	
-		
 		check((AT_FLOOR && MOTOR_STOPPED) || DOORS_CLOSED, "env1");
 
-		// Environment assumption 2 : the elevator moves at a maximum speed of 50 cm/s
 		
+		// Environment assumption 2 : the elevator moves at a maximum speed of 50 cm/s
 		if (! (speed <= MAX_SPEED)) {
 			printf("speed: %d cm/s \n", speed);
 		}
-		
 		check(speed <= MAX_SPEED, "env2");
+		
 		
 		// fill in environment assumption 3
 		check(1, "env3");
 
 		// fill in your own environment assumption 4
-		check(1, "env4");
+		// Environment Assumption 4 : Check that the AT_FLOOR sensor 
+		// 														and position sensor are in agreement 
+		check((0<=pos && pos<=1) || (399<=pos && pos<=401) || (799<=pos && pos<=800) || !AT_FLOOR, "env4");
 
     // Safety requirement 1: if the stop button is pressed, the motor is
 	//                       stopped within 1s
@@ -117,8 +115,12 @@ static void safetyTask(void *params) {
 
 	// Safety requirement 4 : a moving elevator halts only if the stop button
 	//												is pressed or the elevator has arrived at a floor
-	// check(speed != 0 && (STOP_PRESSED || AT_FLOOR), "req4");
-	check(1, "req4");
+	if (getCarMotorStopped()) {
+		printf("Stopped");
+	}
+	check(!getCarMotorStopped() || (AT_FLOOR || STOP_PRESSED), "req4");
+	
+	// check(1, "req4");
 	
 	// Safety requirement 5 : once the elevator has stopped at a floor, it will
 	//												wait for at least 1 s before it continues to another 

@@ -140,6 +140,10 @@ void setCarMotorStopped(u8 stopped) {
   setMotorStopped(&carMotor, stopped);
 }
 
+u8 getCarMotorStopped(){
+	return carMotor.stopped;
+}
+
 /*-----------------------------------------------------------*/
 
 /*
@@ -154,10 +158,10 @@ int main( void )
   setupActuatorModule();
   setupPlanner(1);
   setupSafety(3);
-	setCarTargetPosition(50);
   printf("Setup completed\n");  // this is redirected to USART 1
-
+	setCarTargetPosition(400);
   vTaskStartScheduler();
+	
   assert( 0);
   return 0;                 // not reachable
 }
