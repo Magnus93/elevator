@@ -53,7 +53,7 @@ static void check(u8 assertion, char *name) {
 
 static void safetyTask(void *params) {
   s16 timeSinceStopPressed = -1;
-
+	s16 timeSinceAtFloor = -1;
   xLastWakeTime = xTaskGetTickCount();
 	
 	
@@ -120,8 +120,21 @@ static void safetyTask(void *params) {
 	// Safety requirement 5 : once the elevator has stopped at a floor, it will
 	//												wait for at least 1 s before it continues to another 
 	//												floor
-	check(1, "req5");
-
+	if (AT_FLOOR) {
+		printf("AT_FLOOR\n");
+	}
+	
+	if(AT_FLOOR){
+		if(timeSinceAtFloor < 0) {
+			timeSinceAtFloor = 0;
+		} else {
+			timeSinceAtFloor += POLL_TIME;
+		}
+	} else if(timeSinceAtFloor > 0) {
+		check(timeSinceAtFloor* portTICK_RATE_MS >= 1000, "req5");
+		timeSinceAtFloor = -1;
+	}
+	
 	// fill in safety requirement 6
 	check(1, "req6");
 
