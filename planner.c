@@ -21,7 +21,10 @@
 static void plannerTask(void *params) {
 
   // ...
-
+	
+	//vTaskDelay(1000);
+	printf("Planner Task started \n");
+	
   vTaskDelay(portMAX_DELAY);
 
 }

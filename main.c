@@ -98,14 +98,14 @@ Motor carMotor;
  */
 void setupActuatorModule() {
   TIM_TimeBaseInitTypeDef timInit;
-
+	
   /* Setup timer TIM3 for pulse-width modulation:
      100kHz, periodically counting from 0 to 9999
      This will generate a 10Hz pulse; far too slow for an
      actual motor, but fast enough to see something blinking
     */
   RCC_APB1PeriphClockCmd( RCC_APB1Periph_TIM3, ENABLE );
-
+	
   TIM_DeInit( TIM3 );
   TIM_TimeBaseStructInit( &timInit );
 
@@ -140,9 +140,7 @@ void setCarMotorStopped(u8 stopped) {
   setMotorStopped(&carMotor, stopped);
 }
 
-u8 getCarMotorStopped(){
-	return carMotor.stopped;
-}
+
 
 /*-----------------------------------------------------------*/
 
@@ -158,8 +156,8 @@ int main( void )
   setupActuatorModule();
   setupPlanner(1);
   setupSafety(3);
-  printf("Setup completed\n");  // this is redirected to USART 1
-	setCarTargetPosition(400);
+  printf("Setup completed\n");  // this is redirected to UART 1
+	setCarTargetPosition(500);
   vTaskStartScheduler();
 	
   assert( 0);

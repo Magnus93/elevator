@@ -79,14 +79,15 @@ static void safetyTask(void *params) {
 		}
 		check(speed <= MAX_SPEED, "env2");
 		
-		
-		// fill in environment assumption 3
-		check(1, "env3");
 
-		// fill in your own environment assumption 4
+		// fill in your own environment assumption 3
 		// Environment Assumption 4 : Check that the AT_FLOOR sensor 
 		// 														and position sensor are in agreement 
-		check((0<=pos && pos<=1) || (399<=pos && pos<=401) || (799<=pos && pos<=800) || !AT_FLOOR, "env4");
+		check((0<=pos && pos<=1) || (399<=pos && pos<=401) || (799<=pos && pos<=800) || !AT_FLOOR, "env3");
+		
+		
+		// fill in environment assumption 4
+		check(1, "env4");
 
     // Safety requirement 1: if the stop button is pressed, the motor is
 	//                       stopped within 1s
@@ -115,7 +116,7 @@ static void safetyTask(void *params) {
 
 	// Safety requirement 4 : a moving elevator halts only if the stop button
 	//												is pressed or the elevator has arrived at a floor
-	check(!getCarMotorStopped() || (AT_FLOOR || STOP_PRESSED), "req4");
+	check(!MOTOR_STOPPED || (AT_FLOOR || STOP_PRESSED), "req4");
 		
 	// Safety requirement 5 : once the elevator has stopped at a floor, it will
 	//												wait for at least 1 s before it continues to another 
