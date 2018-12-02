@@ -157,7 +157,7 @@ int main( void )
   setupPlanner(1);
   setupSafety(3);
   printf("Setup completed\n");  // this is redirected to UART 1
-	setCarTargetPosition(500);
+	setCarTargetPosition(400);
   vTaskStartScheduler();
 	
   assert( 0);
