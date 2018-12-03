@@ -22,15 +22,16 @@ static void positionTrackerTask(void *params) {
 	int pinValue;
 	for(;;) {
 		pinValue = GPIO_ReadInputDataBit(tracker->gpio, tracker->pin);
-		if(pinValue != lastPinValue && pinValue == 1) {
-			if(tracker->direction == Up) {
+		// Detect a change in the pinvalue only if position sensor moves from white to black (assuming 1 is black and 0 is white)
+		if(pinValue != lastPinValue && pinValue == 1) {   
+			if(tracker->direction == Up) {  // if the elevator direction is upward increment the position value
 				tracker->position++;
-			} else if(tracker->direction == Down) {
+			} else if(tracker->direction == Down) { // if the elevator direction is downward decrement the position value
 				tracker->position--;
 			}
 			printf("curret pos: %lu\n", tracker->position);
 		}
-		lastPinValue = pinValue;
+		lastPinValue = pinValue; // remember current pin value for next iteration 
 		vTaskDelay(tracker->pollingPeriod);
 	}
 }
