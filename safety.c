@@ -41,6 +41,8 @@ s32 prev_pos, pos;
 int speed;
 s32 prev_time_ms = 10*BUFF_SIZE;
 
+int last_motor_upward = 1; // Up direction is 1, Down is 0
+
 static void check(u8 assertion, char *name) {
   if (!assertion) {
     printf("SAFETY REQUIREMENT %s VIOLATED: STOPPING ELEVATOR\n", name);
@@ -136,8 +138,11 @@ static void safetyTask(void *params) {
 		timeSinceAtFloor = -1;
 	}
 	
-	// fill in safety requirement 6
-	check(1, "req6");
+	// fill in safety requirement 6 : Elevator may only change direction at a floor
+	// 																Not in between floors 
+	check((MOTOR_UPWARD==last_motor_upward) || AT_FLOOR, "req6");
+	
+	last_motor_upward = MOTOR_UPWARD;
 
 	// fill in safety requirement 7
 	check(1, "req7");
