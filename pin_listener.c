@@ -14,6 +14,8 @@
 #include "pin_listener.h"
 #include "assert.h"
 
+u16 count;
+
 typedef enum {
 	OFFOFF,
 	OFFON,
@@ -43,20 +45,31 @@ void debounce_rising(PinListener *listener, xQueueHandle pinEventQueue) {
 	listener->status = GPIO_ReadInputDataBit(GPIOC, listener->pin);
 	pre_value = eventstatus[listener->risingEvent];
 	eventstatus[listener->risingEvent] = nextState(eventstatus[listener->risingEvent], listener->status);
+	count = count + 1;
+	//printf ("count: %d " , count);
 	if (eventstatus[listener->risingEvent] == ONON && pre_value != ONON) {
-		xQueueSend(pinEventQueue, &(listener->risingEvent), portMAX_DELAY); 
+		if(count % 3 == 0) {
+				//printf ("count when sending to queue: %d " , count);
+				xQueueSend(pinEventQueue, &(listener->risingEvent), portMAX_DELAY); 
+		}
+		
 	} 
-	printf("reise : %d \n", listener->risingEvent);
+	//printf("reise : %d \n", listener->risingEvent);
 }
 
 void debounce_falling(PinListener *listener, xQueueHandle pinEventQueue) {
 	listener->status = GPIO_ReadInputDataBit(GPIOC, listener->pin);
 	pre_value = eventstatus[listener->fallingEvent];
 	eventstatus[listener->fallingEvent] = nextState(eventstatus[listener->fallingEvent], ! listener->status);
+	count = count + 1;
+	//printf ("count: %d " , count);
 	if ( eventstatus[listener->fallingEvent] == ONON && pre_value != ONON && listener->fallingEvent != UNASSIGNED ) {
-		xQueueSend(pinEventQueue, &(listener->fallingEvent), portMAX_DELAY);
+		if(count % 3 == 0) {
+			//printf ("count when sending to queue: %d " , count);
+			xQueueSend(pinEventQueue, &(listener->fallingEvent), portMAX_DELAY);
+		}	
 	}
-	printf("fall : %d \n", listener->fallingEvent);
+	//printf("fall : %d \n", listener->fallingEvent);
 }
 
 static void pollPin(PinListener *listener,

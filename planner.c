@@ -18,17 +18,22 @@
 #include "planner.h"
 #include "assert.h"
 
+int i = 0;
+
 static void plannerTask(void *params) {
 
   // ...
-	
-	//vTaskDelay(1000);
 	printf("Planner Task started \n");
+	/*for(i=0;i<2;i++){
+	setCarTargetPosition(400);
+	}*/
+	//vTaskDelay(1000);
 	
-  vTaskDelay(portMAX_DELAY);
+	vTaskDelay(portMAX_DELAY);
+  
 
 }
 
 void setupPlanner(unsigned portBASE_TYPE uxPriority) {
-  xTaskCreate(plannerTask, "planner", 100, NULL, uxPriority, NULL);
+  xTaskCreate(plannerTask, "planner", 200, NULL, uxPriority, NULL);
 }

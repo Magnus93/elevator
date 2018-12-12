@@ -19,6 +19,8 @@
 #include "global.h"
 #include "assert.h"
 
+
+
 #define ABS(a) (a>=0 ? a : -a)
 #define POLL_TIME (10 / portTICK_RATE_MS)
 #define BUFF_SIZE 20
@@ -41,11 +43,14 @@ s32 prev_pos, pos;
 int speed;
 s32 prev_time_ms = 10*BUFF_SIZE;
 
-int last_motor_upward = 1; // Up direction is 1, Down is 0
+int last_motor_upward = 0; // Up direction is 1, Down is 0
 
 static void check(u8 assertion, char *name) {
   if (!assertion) {
     printf("SAFETY REQUIREMENT %s VIOLATED: STOPPING ELEVATOR\n", name);
+		printf("--------------");
+		printf("Current Dir: %d , Motor_Stop : %d ", getDirection(), MOTOR_STOPPED);
+	
     for (;;) {
 	  setCarMotorStopped(1);
   	  vTaskDelayUntil(&xLastWakeTime, POLL_TIME);
@@ -84,15 +89,13 @@ static void safetyTask(void *params) {
 		// fill in your own environment assumption 3
 		// Environment Assumption 3 : Check that AT_FLOOR sensor 
 		// 														and position sensor are in agreement 
-		check((0<=pos && pos<=1) || (399<=pos && pos<=401) || (799<=pos && pos<=800) || !AT_FLOOR, "env3");
+		check((-1<=pos && pos<=1) || (399<=pos && pos<=401) || (799<=pos && pos<=801) || !AT_FLOOR, "env3");
 		
 		
 		// fill in environment assumption 4
-		// Environment Assumption 4 :	When at floor the elevator is not moving 
-		// 														AT_FLOOR -> speed<=5
-		if (AT_FLOOR) {
-			printf("AT_FLOOR, speed: %d\n", speed);
-		}
+		// Environment Assumption 4 :	The elevator does not move when the motor output is 0. 
+		//														There's a threshold with the position sensor, which is used
+		//                            to measure the speed hence we have a minimum of 5cm/s at a floor
 		check( ! AT_FLOOR || (speed <= 5), "env4");
 
     // Safety requirement 1: if the stop button is pressed, the motor is
@@ -127,7 +130,7 @@ static void safetyTask(void *params) {
 	// Safety requirement 5 : once the elevator has stopped at a floor, it will
 	//												wait for at least 1 s before it continues to another 
 	//												floor
-	if(AT_FLOOR){
+	if(AT_FLOOR && MOTOR_STOPPED){
 		if(timeSinceAtFloor < 0) {
 			timeSinceAtFloor = 0;
 		} else {
@@ -140,9 +143,9 @@ static void safetyTask(void *params) {
 	
 	// fill in safety requirement 6 : Elevator may only change direction at a floor
 	// 																Not in between floors 
-	check((MOTOR_UPWARD==last_motor_upward) || AT_FLOOR, "req6");
+	last_motor_upward = getDirection();
+	check((getDirection() == last_motor_upward) || MOTOR_STOPPED, "req6");	
 	
-	last_motor_upward = MOTOR_UPWARD;
 
 	// fill in safety requirement 7
 	check(1, "req7");

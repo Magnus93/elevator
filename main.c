@@ -34,6 +34,7 @@
 /* Input module */
 
 xQueueHandle pinEventQueue;
+Direction DirValue; 
 
 /**
  * This array describes which pins are connected to which
@@ -140,6 +141,13 @@ void setCarMotorStopped(u8 stopped) {
   setMotorStopped(&carMotor, stopped);
 }
 
+Direction getDirection(){
+	xSemaphoreTake(carPositionTracker.lock, portMAX_DELAY);
+	DirValue = carPositionTracker.direction;
+	xSemaphoreGive(carPositionTracker.lock);
+	return carPositionTracker.direction;
+	
+}
 
 
 /*-----------------------------------------------------------*/
