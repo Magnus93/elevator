@@ -29,7 +29,7 @@ static void positionTrackerTask(void *params) {
 			} else if(tracker->direction == Down) { // if the elevator direction is downward decrement the position value
 				tracker->position--;
 			}
-			printf("curret pos: %lu\n", tracker->position);
+			//printf("curret pos: %lu\n", tracker->position);
 		}
 		lastPinValue = pinValue; // remember current pin value for next iteration 
 		vTaskDelay(tracker->pollingPeriod);

@@ -42,6 +42,10 @@ typedef enum {
   STOP_PRESSED, STOP_RELEASED
 } PinEvent;
 
+#define FLOOR_1_POS 0
+#define FLOOR_2_POS 20
+#define FLOOR_3_POS 40 
+
 /**
  * Queue on which events are propagated
  */

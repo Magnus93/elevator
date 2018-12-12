@@ -49,7 +49,7 @@ static void check(u8 assertion, char *name) {
   if (!assertion) {
     printf("SAFETY REQUIREMENT %s VIOLATED: STOPPING ELEVATOR\n", name);
 		printf("--------------");
-		printf("Current Dir: %d , Motor_Stop : %d ", getDirection(), MOTOR_STOPPED);
+		printf("Speed: %d , AT_FLOOR : %d", speed, AT_FLOOR );
 	
     for (;;) {
 	  setCarMotorStopped(1);
@@ -89,14 +89,16 @@ static void safetyTask(void *params) {
 		// fill in your own environment assumption 3
 		// Environment Assumption 3 : Check that AT_FLOOR sensor 
 		// 														and position sensor are in agreement 
-		check((-1<=pos && pos<=1) || (399<=pos && pos<=401) || (799<=pos && pos<=801) || !AT_FLOOR, "env3");
+		check((FLOOR_1_POS-1<=pos && pos<=FLOOR_1_POS+1) 
+					|| (FLOOR_2_POS-1<=pos && pos<=FLOOR_2_POS+1) 
+					|| (FLOOR_3_POS-1<=pos && pos<=FLOOR_3_POS+1) || !AT_FLOOR, "env3");
 		
 		
 		// fill in environment assumption 4
 		// Environment Assumption 4 :	The elevator does not move when the motor output is 0. 
 		//														There's a threshold with the position sensor, which is used
 		//                            to measure the speed hence we have a minimum of 5cm/s at a floor
-		check( ! AT_FLOOR || (speed <= 5), "env4");
+		check( !(AT_FLOOR && MOTOR_STOPPED) || (speed <= 5), "env4");
 
     // Safety requirement 1: if the stop button is pressed, the motor is
 	//                       stopped within 1s
@@ -121,7 +123,7 @@ static void safetyTask(void *params) {
 
 	// Safety requirement 3 : the elevator may not pass the end positions,
 	//												that is, go through the roof or the floor
-	check(0 <= pos && pos <= 800, "req3");
+	check(FLOOR_1_POS <= pos && pos <= FLOOR_3_POS, "req3");
 
 	// Safety requirement 4 : a moving elevator halts only if the stop button
 	//												is pressed or the elevator has arrived at a floor
@@ -144,7 +146,7 @@ static void safetyTask(void *params) {
 	// fill in safety requirement 6 : Elevator may only change direction at a floor
 	// 																Not in between floors 
 	last_motor_upward = getDirection();
-	check((getDirection() == last_motor_upward) || MOTOR_STOPPED, "req6");	
+	check((getDirection() == last_motor_upward) || MOTOR_STOPPED || AT_FLOOR, "req6");	
 	
 
 	// fill in safety requirement 7

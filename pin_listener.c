@@ -37,39 +37,48 @@ debounce_state nextState(debounce_state current, int value) {
 	}
 }
 
-// 					States for events : floor_1,floor_2,floor_3,Stop_pres,stop_rel,at_floor,left_floor,doors_close,doors_open  
+// States for events : unknown floor_1 floor_2 floor_3 Stop_pres arrived_at_floor left_floor doors_close doors_open stop_press stop_release
 debounce_state eventstatus[10] = {OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF};
 debounce_state pre_value; 
+
+void print_event(PinEvent evt) {
+	switch (evt) {
+		case(UNASSIGNED): 			printf("UNASSIGNED \n"); break;
+		case(TO_FLOOR_1): 			printf("TO_FLOOR_1 \n"); break;
+		case(TO_FLOOR_2): 			printf("TO_FLOOR_2 \n"); break;
+		case(TO_FLOOR_3): 			printf("TO_FLOOR_3 \n"); break;
+		case(STOP_PRESSED): 		printf("STOP_PRESSED \n"); break;
+		case(STOP_RELEASED):		printf("STOP_RELEASED \n"); break;
+		case(ARRIVED_AT_FLOOR): printf("ARRIVED_AT_FLOOR \n"); break;
+		case(LEFT_FLOOR): 			printf("LEFT_FLOOR\n"); break;
+		case(DOORS_CLOSED): 		printf("DOORS_CLOSED \n"); break;
+		case(DOORS_OPENING): 		printf("DOORS_OPENING \n"); break;
+	}
+}
 
 void debounce_rising(PinListener *listener, xQueueHandle pinEventQueue) {
 	listener->status = GPIO_ReadInputDataBit(GPIOC, listener->pin);
 	pre_value = eventstatus[listener->risingEvent];
 	eventstatus[listener->risingEvent] = nextState(eventstatus[listener->risingEvent], listener->status);
-	count = count + 1;
-	//printf ("count: %d " , count);
-	if (eventstatus[listener->risingEvent] == ONON && pre_value != ONON) {
-		if(count % 3 == 0) {
-				//printf ("count when sending to queue: %d " , count);
-				xQueueSend(pinEventQueue, &(listener->risingEvent), portMAX_DELAY); 
+	if ((eventstatus[listener->risingEvent] == ONON) && (pre_value != ONON)) {
+		if((xQueueSend(pinEventQueue, (void*)&(listener->risingEvent), portMAX_DELAY)) == pdPASS) {
+			printf("sent event: ");
+			print_event(listener->risingEvent);
 		}
-		
 	} 
-	//printf("reise : %d \n", listener->risingEvent);
 }
 
 void debounce_falling(PinListener *listener, xQueueHandle pinEventQueue) {
 	listener->status = GPIO_ReadInputDataBit(GPIOC, listener->pin);
 	pre_value = eventstatus[listener->fallingEvent];
 	eventstatus[listener->fallingEvent] = nextState(eventstatus[listener->fallingEvent], ! listener->status);
-	count = count + 1;
-	//printf ("count: %d " , count);
 	if ( eventstatus[listener->fallingEvent] == ONON && pre_value != ONON && listener->fallingEvent != UNASSIGNED ) {
-		if(count % 3 == 0) {
-			//printf ("count when sending to queue: %d " , count);
-			xQueueSend(pinEventQueue, &(listener->fallingEvent), portMAX_DELAY);
-		}	
+		if (xQueueSend(pinEventQueue, &(listener->fallingEvent), portMAX_DELAY) == pdPASS) {
+			printf("sent event: ");
+			print_event(listener->fallingEvent);
+		}
 	}
-	//printf("fall : %d \n", listener->fallingEvent);
+	
 }
 
 static void pollPin(PinListener *listener,
@@ -98,67 +107,22 @@ static void pollPin(PinListener *listener,
 			debounce_falling(listener, pinEventQueue);
 			break;			
 	}
-
 }
 
-/*
-static void pollPin(PinListener *listener,
-                    xQueueHandle pinEventQueue) {
-	if (listener->pin == GPIO_Pin_0 && listener->risingEvent == TO_FLOOR_1) { // check floor 1 button
-		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_0);
-		if (listener->status) {
-			printf("Pin 0 is %d \n", listener->status);
-		}
-	} else 	if (listener->pin == GPIO_Pin_1) { // check floor 2 button
-		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_1);
-		if (listener->status) {
-			printf("Pin 1 is %d \n", listener->status);
-		}
-	} else 	if (listener->pin == GPIO_Pin_2) { // check floor 2 button
-		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_2);
-		if (listener->status) {
-			printf("Pin 2 is %d \n", listener->status);
-		}
-	} else 	if (listener->pin == GPIO_Pin_3) { // check stop button
-		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_3);
-		if (listener->status) {
-			printf("Pin 3 is %d \n", listener->status);
-		}
-	} else 	if (listener->pin == GPIO_Pin_7) { // check at floor sensor
-		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_7);
-	} else 	if (listener->pin == GPIO_Pin_8) { // check door sensor 
-		listener->status = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_8);
-	}
-}*/
+
 
 static void pollPinsTask(void *params) {
   PinListenerSet listeners = *((PinListenerSet*)params);
   portTickType xLastWakeTime;
   int i;
-	portBASE_TYPE result;
-	void *event;
   xLastWakeTime = xTaskGetTickCount();
 
   for (;;) {
     for (i = 0; i < listeners.num; ++i) {
 			pollPin(listeners.listeners + i, listeners.pinEventQueue);
-		}
-		result = xQueueReceive(pinEventQueue, event, portMAX_DELAY );
-		if (result == pdPASS){
-			switch((int) event) {
-				case (TO_FLOOR_1):
-					printf("TO_FLOOR_1\n");
-					break;
-				case (TO_FLOOR_2):
-					printf("TO_FLOOR_2\n");
-					break;
-				default:
-					printf("Event: %d", (int) event);
-			}
-		}
+		}   
 		
-    
-	vTaskDelayUntil(&xLastWakeTime, listeners.pollingPeriod);
+		vTaskDelayUntil(&xLastWakeTime, listeners.pollingPeriod);
   }
 }
 

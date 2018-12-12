@@ -165,10 +165,10 @@ int main( void )
   setupPlanner(1);
   setupSafety(3);
   printf("Setup completed\n");  // this is redirected to UART 1
-	setCarTargetPosition(400);
+	setCarTargetPosition(FLOOR_2_POS);
   vTaskStartScheduler();
 	
-  assert( 0);
+  assert(0);
   return 0;                 // not reachable
 }
 /*-----------------------------------------------------------*/

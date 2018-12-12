@@ -23,11 +23,8 @@ int i = 0;
 static void plannerTask(void *params) {
 
   // ...
-	printf("Planner Task started \n");
-	/*for(i=0;i<2;i++){
-	setCarTargetPosition(400);
-	}*/
-	//vTaskDelay(1000);
+	//printf("Planner Task started \n");
+
 	
 	vTaskDelay(portMAX_DELAY);
   
