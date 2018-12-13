@@ -18,30 +18,34 @@
 #include "planner.h"
 #include "assert.h"
 
+#define PLANNER_POLL (10/portTICK_RATE_MS)
 int i = 0;
-PinEvent *event;
+PinEvent event;
+
 
 static void plannerTask(void *params) {
+	static portTickType xLastWakeTime;
+	xLastWakeTime = xTaskGetTickCount();
+	for(;;){
+		// ...
+		//printf("Planner Task started \n");
+		xQueueReceive(pinEventQueue, &event, portMAX_DELAY);
+		printf("Event recieved: %s \n", event_str(event));
+		
+		// Make decision from event 
+		// TO_FLOOR_1
+		// TO_FLOOR_2
+		// TO_FLOOR_3
+		// ARRIVED_AT_FLOOR
+		// LEFT_FLOOR
+		// DOORS_CLOSED
+		// DOORS_OPENING
+		// STOP_PRESSED
+		// STOP_RELEASED
 
-  // ...
-	//printf("Planner Task started \n");
-	xQueueReceive(pinEventQueue, event, portMAX_DELAY);
-	// printf("Event recieved: %s\n", event_str(*event));
-	
-	// Make decision from event 
-	// TO_FLOOR_1
-	// TO_FLOOR_2
-	// TO_FLOOR_3
-	// ARRIVED_AT_FLOOR
-	// LEFT_FLOOR
-  // DOORS_CLOSED
-	// DOORS_OPENING
-  // STOP_PRESSED
-	// STOP_RELEASED
-	
-	
-	vTaskDelay(portMAX_DELAY);
-  
+
+		vTaskDelayUntil(&xLastWakeTime, PLANNER_POLL);
+	}
 
 }
 

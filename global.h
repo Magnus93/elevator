@@ -42,6 +42,10 @@ typedef enum {
   STOP_PRESSED, STOP_RELEASED
 } PinEvent;
 
+typedef enum {
+  Unknown = 0, Up = 1, Down = 2
+} Direction;
+
 #define FLOOR_1_POS 0
 #define FLOOR_2_POS 20
 #define FLOOR_3_POS 40 
@@ -69,6 +73,11 @@ void setCarTargetPosition(s32 target);
  */
 void setCarMotorStopped(u8 stopped);
 
+/**
+ * Get Direction of the Elevator
+ */
+ 
+Direction getDirection( void ); 
 
 
 /**

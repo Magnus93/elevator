@@ -47,7 +47,7 @@ void debounce_rising(PinListener *listener, xQueueHandle pinEventQueue) {
 	eventstatus[listener->risingEvent] = nextState(eventstatus[listener->risingEvent], listener->status);
 	if ((eventstatus[listener->risingEvent] == ONON) && (pre_value != ONON)) {
 		if((xQueueSend(pinEventQueue, (void*)&(listener->risingEvent), portMAX_DELAY)) == pdPASS) {
-			printf("sent event: %s\n", event_str(listener->risingEvent));
+			//printf("sent event: %s\n", event_str(listener->risingEvent));
 		}
 	} 
 }
@@ -58,7 +58,7 @@ void debounce_falling(PinListener *listener, xQueueHandle pinEventQueue) {
 	eventstatus[listener->fallingEvent] = nextState(eventstatus[listener->fallingEvent], ! listener->status);
 	if ( eventstatus[listener->fallingEvent] == ONON && pre_value != ONON && listener->fallingEvent != UNASSIGNED ) {
 		if (xQueueSend(pinEventQueue, &(listener->fallingEvent), portMAX_DELAY) == pdPASS) {
-			printf("sent event: %s\n", event_str(listener->fallingEvent));
+			//printf("sent event: %s\n", event_str(listener->fallingEvent));
 		}
 	}
 	
