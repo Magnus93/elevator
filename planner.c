@@ -32,6 +32,12 @@ static void plannerTask(void *params) {
 		xQueueReceive(pinEventQueue, &event, portMAX_DELAY);
 		printf("Event recieved: %s \n", event_str(event));
 		
+		switch( event ){
+			case(TO_FLOOR_2): 
+				printf("Inside case loop");
+				setCarTargetPosition(FLOOR_2_POS); break; 
+		
+		}
 		// Make decision from event 
 		// TO_FLOOR_1
 		// TO_FLOOR_2
