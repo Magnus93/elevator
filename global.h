@@ -70,4 +70,11 @@ void setCarTargetPosition(s32 target);
 void setCarMotorStopped(u8 stopped);
 
 
+
+/**
+ * Get event as string 
+ *
+ */
+char *event_str(PinEvent evt);
+
 #endif

@@ -149,6 +149,21 @@ Direction getDirection(){
 	
 }
 
+char *event_str(PinEvent evt) {
+	switch (evt) {
+		case(UNASSIGNED): 			return ("UNASSIGNED"); 
+		case(TO_FLOOR_1): 			return ("TO_FLOOR_1");
+		case(TO_FLOOR_2): 			return ("TO_FLOOR_2");
+		case(TO_FLOOR_3): 			return ("TO_FLOOR_3");
+		case(STOP_PRESSED): 		return ("STOP_PRESSED"); 
+		case(STOP_RELEASED):		return ("STOP_RELEASED");
+		case(ARRIVED_AT_FLOOR): return ("ARRIVED_AT_FLOOR"); 
+		case(LEFT_FLOOR): 			return ("LEFT_FLOOR"); 
+		case(DOORS_CLOSED): 		return ("DOORS_CLOSED"); 
+		case(DOORS_OPENING): 		return ("DOORS_OPENING");
+		default:                return ("Faulty event");
+	}
+}
 
 /*-----------------------------------------------------------*/
 

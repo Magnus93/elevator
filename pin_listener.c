@@ -41,29 +41,13 @@ debounce_state nextState(debounce_state current, int value) {
 debounce_state eventstatus[10] = {OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF, OFFOFF};
 debounce_state pre_value; 
 
-void print_event(PinEvent evt) {
-	switch (evt) {
-		case(UNASSIGNED): 			printf("UNASSIGNED \n"); break;
-		case(TO_FLOOR_1): 			printf("TO_FLOOR_1 \n"); break;
-		case(TO_FLOOR_2): 			printf("TO_FLOOR_2 \n"); break;
-		case(TO_FLOOR_3): 			printf("TO_FLOOR_3 \n"); break;
-		case(STOP_PRESSED): 		printf("STOP_PRESSED \n"); break;
-		case(STOP_RELEASED):		printf("STOP_RELEASED \n"); break;
-		case(ARRIVED_AT_FLOOR): printf("ARRIVED_AT_FLOOR \n"); break;
-		case(LEFT_FLOOR): 			printf("LEFT_FLOOR\n"); break;
-		case(DOORS_CLOSED): 		printf("DOORS_CLOSED \n"); break;
-		case(DOORS_OPENING): 		printf("DOORS_OPENING \n"); break;
-	}
-}
-
 void debounce_rising(PinListener *listener, xQueueHandle pinEventQueue) {
 	listener->status = GPIO_ReadInputDataBit(GPIOC, listener->pin);
 	pre_value = eventstatus[listener->risingEvent];
 	eventstatus[listener->risingEvent] = nextState(eventstatus[listener->risingEvent], listener->status);
 	if ((eventstatus[listener->risingEvent] == ONON) && (pre_value != ONON)) {
 		if((xQueueSend(pinEventQueue, (void*)&(listener->risingEvent), portMAX_DELAY)) == pdPASS) {
-			printf("sent event: ");
-			print_event(listener->risingEvent);
+			printf("sent event: %s\n", event_str(listener->risingEvent));
 		}
 	} 
 }
@@ -74,8 +58,7 @@ void debounce_falling(PinListener *listener, xQueueHandle pinEventQueue) {
 	eventstatus[listener->fallingEvent] = nextState(eventstatus[listener->fallingEvent], ! listener->status);
 	if ( eventstatus[listener->fallingEvent] == ONON && pre_value != ONON && listener->fallingEvent != UNASSIGNED ) {
 		if (xQueueSend(pinEventQueue, &(listener->fallingEvent), portMAX_DELAY) == pdPASS) {
-			printf("sent event: ");
-			print_event(listener->fallingEvent);
+			printf("sent event: %s\n", event_str(listener->fallingEvent));
 		}
 	}
 	
