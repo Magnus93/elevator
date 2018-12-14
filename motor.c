@@ -127,11 +127,6 @@ static void motorTask(void *params) {
 
       currentDuty = 0;
       setDuty(motor, currentDuty);
-		
-		/* Set motor stopped if target reached : ADDED BY ARNE AND YASH */
-		 xSemaphoreTake(motor->lock, portMAX_DELAY);
-		 motor->stopped = 1; 
-		 xSemaphoreGive(motor->lock);
 	}
 
 	vTaskDelayUntil(&xLastWakeTime, motor->pollingPeriod);

@@ -17,10 +17,9 @@
 #include "FreeRTOS.h"
 #include "semphr.h"
 #include "stm32f10x_gpio.h"
+#include "global.h"
 
-typedef enum {
-  Unknown = 0, Up = 1, Down = 2
-} Direction;
+
 
 typedef struct {
 

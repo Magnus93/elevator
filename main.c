@@ -134,7 +134,6 @@ s32 getCarPosition() {
 }
 
 void setCarTargetPosition(s32 target) {
-	printf("");
   setTargetPosition(&carMotor, target);
 }
 
@@ -181,7 +180,6 @@ int main( void )
   setupPlanner(1);
   setupSafety(3);
   printf("Setup completed\n");  // this is redirected to UART 1
-	//setCarTargetPosition(FLOOR_2_POS);
   vTaskStartScheduler();
 	
   assert(0);

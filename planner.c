@@ -34,7 +34,7 @@ static void plannerTask(void *params) {
 		
 		switch( event ){
 			case(TO_FLOOR_2): 
-				printf("Inside case loop");
+				vTaskDelay(1000/portTICK_RATE_MS);
 				setCarTargetPosition(FLOOR_2_POS); break; 
 		
 		}
@@ -49,7 +49,7 @@ static void plannerTask(void *params) {
 		// STOP_PRESSED
 		// STOP_RELEASED
 
-
+    
 		vTaskDelayUntil(&xLastWakeTime, PLANNER_POLL);
 	}
 
