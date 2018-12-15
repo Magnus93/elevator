@@ -43,6 +43,8 @@ s32 prev_time_ms = 10*BUFF_SIZE;
 s16 timeSinceStopPressed;
 s16 timeSinceAtFloor;
 
+int last_motor_stopped; 		// Last value of Motor Stopped 
+int motor_halts; 						// 1 if motor when from running to stop 
 int last_motor_upward = 0; // Up direction is 1, Down is 0
 
 static void check(u8 assertion, char *name) {
@@ -64,6 +66,7 @@ static void safetyTask(void *params) {
   timeSinceStopPressed = -1;
 	timeSinceAtFloor = -1;
   xLastWakeTime = xTaskGetTickCount();
+	last_motor_stopped = MOTOR_STOPPED;
 	
 	
   for (;;) {
@@ -74,6 +77,8 @@ static void safetyTask(void *params) {
 		pos = position_buffer[(pos_head_index)% BUFF_SIZE];					// get current position
 		prev_pos = position_buffer[(pos_head_index+1)% BUFF_SIZE];    // the position 200ms ago
 		speed = (ABS(pos-prev_pos)*1000/prev_time_ms);
+		
+		motor_halts = MOTOR_STOPPED && ! last_motor_stopped;
 		
     // Environment assumption 1: the doors can only be opened if
 		//                           the elevator is at a floor and
@@ -126,7 +131,8 @@ static void safetyTask(void *params) {
 
 	// Safety requirement 4 : a moving elevator halts only if the stop button
 	//												is pressed or the elevator has arrived at a floor
-	check(!MOTOR_STOPPED || (AT_FLOOR || STOP_PRESSED), "req4");
+	
+	check(!motor_halts || (AT_FLOOR || STOP_PRESSED), "req4");
 		
 	// Safety requirement 5 : once the elevator has stopped at a floor, it will
 	//												wait for at least 1 s before it continues to another 
@@ -146,11 +152,16 @@ static void safetyTask(void *params) {
 	// 																Not in between floors 
 	last_motor_upward = getDirection();
 	check((getDirection() == last_motor_upward) || MOTOR_STOPPED || AT_FLOOR, "req6");	
-	
+	// OBS!!!!!!!!!!!! ---------- This is wrong! \
+	// 						1. last_motor_is should be direction type
+	// 						2. last_motor_upward should be set after check statement  
 
 	// fill in safety requirement 7
 	check(1, "req7");
 
+	
+	last_motor_stopped = MOTOR_STOPPED;
+	
 	vTaskDelayUntil(&xLastWakeTime, POLL_TIME);
   }
 
