@@ -19,12 +19,20 @@
 #include "assert.h"
 
 #define PLANNER_POLL (10/portTICK_RATE_MS)
+#define WAIT_FLOOR (1000/portTICK_RATE_MS)
+
 int i = 0;
 PinEvent event;
 static portTickType xLastWakeTime;
+static portTickType StoppedAt;
+
 
 int stop_state, is_target_set = 0;
 int floor_arr[] = {0,0,0};
+s16 time_at_floor = 0; 
+s32 FLOOR_LEVELS[3] = {FLOOR_1_POS, FLOOR_2_POS, FLOOR_3_POS};
+
+
 
 void addFloor (int floor) {
 	// check if floor is already called
@@ -63,43 +71,70 @@ void addFloor (int floor) {
 			return;
 		}
 	} 
-	
-	
 }
 
-void removeFloor (int Floor) {
+void print_floor_arr() {
+	printf("{");
+	for (i = 0; i < 3; i++) {
+		printf(" %d ", floor_arr[i]);
+	}
+	printf("}\n");
+}
 
+/*
+void addFloor(int floor) {
+	floor_arr[0] = floor;
+	is_target_set = 0; 
+}*/
+
+void removeFloor () {
+	floor_arr[0] = floor_arr[1];
+	floor_arr[1] = floor_arr[2];
+	is_target_set = 0;
 }
 
 static void plannerTask(void *params) {
 	xLastWakeTime = xTaskGetTickCount();
 	for(;;){
 		xQueueReceive(pinEventQueue, &event, portMAX_DELAY);
-		printf("Event recieved: %s \n", event_str(event));
+		printf("Event recieved: %s, pos: %lu\n", event_str(event), getCarPosition());
 		switch( event ) {
-			case(STOP_PRESSED) : stop_state = 1; setCarMotorStopped(1); break;
+			case(STOP_PRESSED) : 
+				stop_state = 1; setCarMotorStopped(1); break;
 			case(STOP_RELEASED): stop_state = 0; break;
-			case(TO_FLOOR_1): addFloor(0); break;
-			case(TO_FLOOR_2): addFloor(1); break;
-			case(TO_FLOOR_3): addFloor(2); break;
+			case(TO_FLOOR_1): addFloor(1); print_floor_arr(); break;
+			case(TO_FLOOR_2): addFloor(2); print_floor_arr(); break;
+			case(TO_FLOOR_3): addFloor(3); print_floor_arr(); break;
+			case(ARRIVED_AT_FLOOR): 
+				if (floor_arr[0] != 0 && 
+				FLOOR_LEVELS[floor_arr[0]-1] - 1 <= getCarPosition() && 
+				getCarPosition() <= FLOOR_LEVELS[floor_arr[0]-1] + 1) {
+						removeFloor();
+						time_at_floor = 0;
+						print_floor_arr();
+						StoppedAt = xTaskGetTickCount();
+					printf("StoppedAt: %lu \n", StoppedAt);
+				} break;
 			// need to add other events
 		}
-		
-		if(stop_state != 1 && is_target_set != 1){
+		if(stop_state != 1 && is_target_set != 1) {
 			switch(floor_arr[0]) {
 				case(1) : 
-					vTaskDelay(1000/portTICK_RATE_MS);
-					setCarTargetPosition(TO_FLOOR_1);
+					vTaskDelayUntil(&StoppedAt, WAIT_FLOOR);
+				  printf("Stopped Until : %lu \n" ,xTaskGetTickCount());
+					setCarTargetPosition(FLOOR_1_POS);
 					is_target_set = 1;
 					break;
 				case(2) : 
-					vTaskDelay(1000/portTICK_RATE_MS);
-					setCarTargetPosition(TO_FLOOR_2);
+					vTaskDelayUntil(&StoppedAt, WAIT_FLOOR);
+					printf("Stopped Until : %lu \n" ,xTaskGetTickCount());
+					setCarTargetPosition(FLOOR_2_POS);
 					is_target_set = 1;
 					break;
 				case(3) : 
-					vTaskDelay(1000/portTICK_RATE_MS);
-					setCarTargetPosition(TO_FLOOR_3);
+					vTaskDelayUntil(&StoppedAt, WAIT_FLOOR);
+					printf("Stopped Until : %lu \n" ,xTaskGetTickCount());
+					setCarTargetPosition(FLOOR_3_POS);
 					is_target_set = 1;
 					break;
 			}		
