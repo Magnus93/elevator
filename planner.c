@@ -42,6 +42,9 @@ int is_arriving_at_floor = 0; 	// Set to the floor that is being arrived at
 
 /* Adds 'floor' to the floor order 
 * 	PRE: 	FLOOR is 1, 2 or 3 
+		OBS!!! - look at snip
+			current:		{3,1,0} -> {3,1,2}
+			should be:	{3,1,0} -> {3,2,1}
 */
 void addFloor (int floor) {
 	// checks if floor is already called if not add it to the first empty order
