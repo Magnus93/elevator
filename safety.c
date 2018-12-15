@@ -45,7 +45,7 @@ s16 timeSinceAtFloor;
 
 int last_motor_stopped; 		// Last value of Motor Stopped 
 int motor_halts; 						// 1 if motor when from running to stop 
-int last_motor_upward = 0; // Up direction is 1, Down is 0
+Direction last_motor_upward; // Unknown is 0, Up direction is 1, Down is 2
 
 static void check(u8 assertion, char *name) {
   if (!assertion) {
@@ -66,8 +66,9 @@ static void safetyTask(void *params) {
   timeSinceStopPressed = -1;
 	timeSinceAtFloor = -1;
   xLastWakeTime = xTaskGetTickCount();
-	last_motor_stopped = MOTOR_STOPPED;
 	
+	last_motor_stopped = MOTOR_STOPPED;
+	last_motor_upward = getDirection();
 	
   for (;;) {
 		
@@ -150,17 +151,15 @@ static void safetyTask(void *params) {
 	
 	// fill in safety requirement 6 : Elevator may only change direction at a floor
 	// 																Not in between floors 
-	last_motor_upward = getDirection();
-	check((getDirection() == last_motor_upward) || MOTOR_STOPPED || AT_FLOOR, "req6");	
-	// OBS!!!!!!!!!!!! ---------- This is wrong! \
-	// 						1. last_motor_is should be direction type
-	// 						2. last_motor_upward should be set after check statement  
+	check((getDirection() == last_motor_upward) || MOTOR_STOPPED || AT_FLOOR, "req6");
+	
 
 	// fill in safety requirement 7
 	check(1, "req7");
 
 	
 	last_motor_stopped = MOTOR_STOPPED;
+	last_motor_upward = getDirection();
 	
 	vTaskDelayUntil(&xLastWakeTime, POLL_TIME);
   }
