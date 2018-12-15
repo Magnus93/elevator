@@ -25,9 +25,6 @@
 #define POLL_TIME (10 / portTICK_RATE_MS)
 #define BUFF_SIZE 20
 
-#define MOTOR_UPWARD   (TIM3->CCR1)
-#define MOTOR_DOWNWARD (TIM3->CCR2)
-#define MOTOR_STOPPED  (!MOTOR_UPWARD && !MOTOR_DOWNWARD)
 #define MAX_SPEED 50
 
 
@@ -43,14 +40,19 @@ s32 prev_pos, pos;
 int speed;
 s32 prev_time_ms = 10*BUFF_SIZE;
 
+s16 timeSinceStopPressed;
+s16 timeSinceAtFloor;
+
 int last_motor_upward = 0; // Up direction is 1, Down is 0
 
 static void check(u8 assertion, char *name) {
   if (!assertion) {
     printf("SAFETY REQUIREMENT %s VIOLATED: STOPPING ELEVATOR\n", name);
-		printf("--------------");
-		printf("Speed: %d , AT_FLOOR : %d", speed, AT_FLOOR );
-	
+		printf("--------------\n");
+		printf("Speed: %d , AT_FLOOR : %d \n", speed, AT_FLOOR );
+		printf("MOTOR_STOPPED: %d , Position: %lu \n", MOTOR_STOPPED, pos  );
+		printf("timeSinceAtFloor : %d \n", timeSinceAtFloor);
+		
     for (;;) {
 	  setCarMotorStopped(1);
   	  vTaskDelayUntil(&xLastWakeTime, POLL_TIME);
@@ -59,8 +61,8 @@ static void check(u8 assertion, char *name) {
 }
 
 static void safetyTask(void *params) {
-  s16 timeSinceStopPressed = -1;
-	s16 timeSinceAtFloor = -1;
+  timeSinceStopPressed = -1;
+	timeSinceAtFloor = -1;
   xLastWakeTime = xTaskGetTickCount();
 	
 	
@@ -80,9 +82,6 @@ static void safetyTask(void *params) {
 
 		
 		// Environment assumption 2 : the elevator moves at a maximum speed of 50 cm/s
-		if (! (speed <= MAX_SPEED)) {
-			printf("speed: %d cm/s \n", speed);
-		}
 		check(speed <= MAX_SPEED, "env2");
 		
 

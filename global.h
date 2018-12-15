@@ -50,6 +50,10 @@ typedef enum {
 #define FLOOR_2_POS 20
 #define FLOOR_3_POS 40 
 
+#define MOTOR_UPWARD   (TIM3->CCR1)
+#define MOTOR_DOWNWARD (TIM3->CCR2)
+#define MOTOR_STOPPED  (!MOTOR_UPWARD && !MOTOR_DOWNWARD)
+
 /**
  * Queue on which events are propagated
  */
