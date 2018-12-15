@@ -91,7 +91,11 @@ void removeFloor () {
 	floor_order[0] = floor_order[1];
 	floor_order[1] = floor_order[2];
 	floor_order[2] = 0;
-	is_target_set = 0;
+	if (floor_order[0] != 0) {
+		is_target_set = 0;
+	} else {
+		is_target_set = 1;
+	}
 }
 
 static void plannerTask(void *params) {
