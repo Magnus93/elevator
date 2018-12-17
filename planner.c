@@ -40,6 +40,39 @@ int floor_order[] = {0,0,0}; // Stores floor order of execution (i=0 is current 
 int i = 0;  // General Iteration Variable 
 int is_arriving_at_floor = 0; 	// Set to the floor that is being arrived at
 
+/*
+* Add floor 2 to floor order 
+*/
+void addFloor2() {
+	// check if array is empty , add it to first
+	// case {0,0,0}
+	if( floor_order[0] == 0) {
+		floor_order[0] = 2;
+		return;
+	}
+	// case {3,1,0} or {1,3,0}
+	// checks if floor 2 call should be prioritized as the current order
+	// if current position is not too close to floor 2 then add it to the current order
+	// e.g.:  {3,1,0} -> {2,3,1}
+	// e.g.: 	{3,0,0} => {2,3,0} 
+	if( (floor_order[0] == 3 && getCarPosition() <= (FLOOR_1_POS + FLOOR_2_POS)/2) ||   /* | 3 -------- 2 ----<-E- 1 | or */
+		(floor_order[0] == 1 && getCarPosition() >= ((FLOOR_3_POS + FLOOR_2_POS)/2)) ) {  /* | 3 --E->--- 2 -------- 1 |  */
+			floor_order[2] = floor_order[1];
+			floor_order[1] = floor_order[0];
+			floor_order[0] = 2;
+			is_target_set = 0;
+			return;
+	} else {
+		/* | 3 ---<-E-- 2 -------- 1 | or */
+		// else add floor 2 as second order 
+		// e.g.:  {3,1,0} -> {3,2,1}
+		floor_order[2] = floor_order[1];
+		floor_order[1] = 2;
+		is_target_set = 0;
+		return;
+	} 
+}
+
 /* Adds 'floor' to the floor order 
 * 	PRE: 	FLOOR is 1, 2 or 3 
 		OBS!!! - look at snip
@@ -47,36 +80,21 @@ int is_arriving_at_floor = 0; 	// Set to the floor that is being arrived at
 			should be:	{3,1,0} -> {3,2,1}
 */
 void addFloor (int floor) {
-	// checks if floor is already called if not add it to the first empty order
-	for( i = 0; i < 3; i++ ) {
-		if(floor_order[i] == floor) {
-			return;
-		}else if(floor_order[i] == 0){
-			floor_order[i] = floor;
-			is_target_set = 0;
+	// checks if floor is already called 
+	for (i = 0; i < 3; i++ ) {
+		if (floor_order[i] == floor) {
 			return;
 		}
 	}
-	// checks if floor 2 call should be prioritized as the current order
-	if(floor == 2){	
-		// if current position is not too close to floor 2 then add it to the current order
-		// e.g.:  {3,1,0} -> {2,3,1}
-		// 
-		if( (floor_order[0] == 3 && getCarPosition() <= (FLOOR_1_POS + FLOOR_2_POS)/2) || 
-			(floor_order[0] == 1 && getCarPosition() >= ((FLOOR_3_POS + FLOOR_2_POS)/2)) ) {
-			floor_order[2] = floor_order[1];
-			floor_order[1] = floor_order[0];
-			floor_order[0] = floor;
-			is_target_set = 0;
+	if (floor == 2) {
+		addFloor2();
+		return;
+	}
+	for (i = 0; i < 3; i++) {
+		if (floor_order[i] == 0) {
+			floor_order[i] = floor;
 			return;
-		} else {
-			// else add floor 2 as second order 
-			// e.g.:  {3,1,0} -> {3,2,1}
-			floor_order[2] = floor_order[1];
-			floor_order[1] = floor;
-			is_target_set = 0;
-			return;
-		} 
+		}
 	}
 }
 
