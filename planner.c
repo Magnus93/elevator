@@ -48,6 +48,7 @@ void addFloor2() {
 	// case {0,0,0}
 	if( floor_order[0] == 0) {
 		floor_order[0] = 2;
+		is_target_set = 0;
 		return;
 	}
 	// case {3,1,0} or {1,3,0}
@@ -93,6 +94,7 @@ void addFloor (int floor) {
 	for (i = 0; i < 3; i++) {
 		if (floor_order[i] == 0) {
 			floor_order[i] = floor;
+			is_target_set = 0;
 			return;
 		}
 	}
