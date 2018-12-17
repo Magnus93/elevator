@@ -47,8 +47,8 @@ typedef enum {
 } Direction;
 
 #define FLOOR_1_POS 0
-#define FLOOR_2_POS 20
-#define FLOOR_3_POS 40 
+#define FLOOR_2_POS 400
+#define FLOOR_3_POS 800 
 
 #define MOTOR_UPWARD   (TIM3->CCR1)
 #define MOTOR_DOWNWARD (TIM3->CCR2)
