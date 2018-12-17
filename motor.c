@@ -46,7 +46,7 @@ static s32 min(s32 a, s32 b) {
     return b;
 }
 
-static setCompare(TIM_TypeDef* TIMx, u16 channel, u16 value) {
+static void setCompare(TIM_TypeDef* TIMx, u16 channel, u16 value) {
   switch (channel) {
     case TIM_Channel_1:
 			TIM_SetCompare1(TIMx, value);
