@@ -179,5 +179,6 @@ void setTargetPosition(Motor *motor, s32 target) {
 void setMotorStopped(Motor *motor, u8 stopped) {
   xSemaphoreTake(motor->lock, portMAX_DELAY);
   motor->stopped = stopped;
+	printf("motor->stop is set to %d\n", motor->stopped);
   xSemaphoreGive(motor->lock);
 }
