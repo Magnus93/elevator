@@ -108,7 +108,6 @@ void print_floor_order() {
 	printf("}\n");
 }
 
-
 /* Removes current order */
 void removeFloor () {
 	floor_order[0] = floor_order[1];
@@ -121,30 +120,34 @@ void removeFloor () {
 	}
 }
 
+void handleEvent(PinEvent evt) {
+	switch( (int) evt ) {
+		case(STOP_PRESSED) : 
+			is_stopped = 1; setCarMotorStopped(1); break;
+		case(STOP_RELEASED): 
+			is_stopped = 0; 
+			setCarMotorStopped(0); 
+			is_target_set = 0; 
+			break;
+		case(TO_FLOOR_1): addFloor(1); print_floor_order(); break;
+		case(TO_FLOOR_2): addFloor(2); print_floor_order(); break;
+		case(TO_FLOOR_3): addFloor(3); print_floor_order(); break;
+		case(ARRIVED_AT_FLOOR): 
+			//	floor_order not empty AND position at floor level+-1
+			if (floor_order[0] != 0 && FLOOR_LEVELS[floor_order[0]-1] - 1 <= getCarPosition() && getCarPosition() <= FLOOR_LEVELS[floor_order[0]-1] + 1) {
+					is_arriving_at_floor = 1;
+			} break;
+		// need to add other events?
+	}
+}
+
+
 static void plannerTask(void *params) {
 	xLastWakeTime = xTaskGetTickCount();
 	for(;;){
 		if(xQueueReceive(pinEventQueue, &event, WAIT_EVENT_MS) == pdPASS){
 			printf("Event recieved: %s, pos: %lu\n", event_str(event), getCarPosition());
-			switch( event ) {
-				case(STOP_PRESSED) : 
-					is_stopped = 1; setCarMotorStopped(1); break;
-				case(STOP_RELEASED): 
-					is_stopped = 0; 
-					setCarMotorStopped(0); 
-					is_target_set = 0; 
-					break;
-				case(TO_FLOOR_1): addFloor(1); print_floor_order(); break;
-				case(TO_FLOOR_2): addFloor(2); print_floor_order(); break;
-				case(TO_FLOOR_3): addFloor(3); print_floor_order(); break;
-				case(ARRIVED_AT_FLOOR): 
-					if (floor_order[0] != 0 && 
-					FLOOR_LEVELS[floor_order[0]-1] - 1 <= getCarPosition() && 
-					getCarPosition() <= FLOOR_LEVELS[floor_order[0]-1] + 1) {
-							is_arriving_at_floor = 1;
-					} break;
-				// need to add other events?
-			}
+			handleEvent(event);
 		}
 		
 		// if floor reached , start counter (xStoppedAt)
