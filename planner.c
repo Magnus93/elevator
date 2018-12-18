@@ -150,6 +150,12 @@ static void plannerTask(void *params) {
 			handleEvent(event);
 		}
 		
+		// Stop at floor 
+		if (floor_order[0] != 0 && getCarPosition() == FLOOR_LEVELS[floor_order[0]-1]) {
+			printf("breaking for floor %d on pos %d\n", floor_order[0], (int) FLOOR_LEVELS[floor_order[0]-1]);
+			setCarMotorStopped(1);
+		}
+
 		// if floor reached , start counter (xStoppedAt)
 		if (MOTOR_STOPPED && is_arriving_at_floor) {
 			removeFloor();
