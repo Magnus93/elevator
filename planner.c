@@ -39,6 +39,7 @@ int is_target_set = 0; // Set to 1 if position target is set
 int floor_order[] = {0,0,0}; // Stores floor order of execution (i=0 is current order)
 int i = 0;  // General Iteration Variable 
 int is_arriving_at_floor = 0; 	// Set to the floor that is being arrived at
+int doors_closed;			// 1 is doors are closed, 0 if doors open 
 
 /*
 * Add floor 2 to floor order 
@@ -137,6 +138,9 @@ void handleEvent(PinEvent evt) {
 			if (floor_order[0] != 0 && FLOOR_LEVELS[floor_order[0]-1] - 1 <= getCarPosition() && getCarPosition() <= FLOOR_LEVELS[floor_order[0]-1] + 1) {
 					is_arriving_at_floor = 1;
 			} break;
+		case(DOORS_CLOSED): doors_closed = 1; break;
+		case(DOORS_OPENING): doors_closed = 0; break; 
+			
 		// need to add other events?
 	}
 }
@@ -150,12 +154,15 @@ static void plannerTask(void *params) {
 			handleEvent(event);
 		}
 		
+		// "req4" check - motor_halts => (AT_FLOOR || STOP_PRESSED)
 		// Stop at floor 
-		if (floor_order[0] != 0 && getCarPosition() == FLOOR_LEVELS[floor_order[0]-1]) {
+		if (floor_order[0] != 0 && getCarPosition() == FLOOR_LEVELS[floor_order[0]-1] ) {
 			printf("breaking for floor %d on pos %d\n", floor_order[0], (int) FLOOR_LEVELS[floor_order[0]-1]);
 			setCarMotorStopped(1);
 		}
-
+		
+		
+		// "req5" check - Once MOTOR_STOPPED and AT_FLOOR start counting to 1 sec 
 		// if floor reached , start counter (xStoppedAt)
 		if (MOTOR_STOPPED && is_arriving_at_floor) {
 			removeFloor();
@@ -166,9 +173,10 @@ static void plannerTask(void *params) {
 		
 		// get counter value and proceed if greater than 1s 
 		xTimeAtFloor = xTaskGetTickCount()-xStoppedAt; 
-		if(is_stopped != 1 && is_target_set != 1 && xTimeAtFloor/portTICK_RATE_MS > WAIT_FLOOR_MS) {
+		if(is_stopped != 1 && is_target_set != 1 && xTimeAtFloor/portTICK_RATE_MS > WAIT_FLOOR_MS && doors_closed) {
 			printf("Time at floor %lu \n", xTimeAtFloor);
 			if (floor_order[0] != 0) {
+				setCarMotorStopped(0);
 				setCarTargetPosition(FLOOR_LEVELS[floor_order[0]-1]);
 				is_target_set = 1;
 			}		
