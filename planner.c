@@ -157,7 +157,6 @@ static void plannerTask(void *params) {
 		// "req4" check - motor_halts => (AT_FLOOR || STOP_PRESSED)
 		// Stop at floor 
 		if (floor_order[0] != 0 && getCarPosition() == FLOOR_LEVELS[floor_order[0]-1] ) {
-			printf("breaking for floor %d on pos %d\n", floor_order[0], (int) FLOOR_LEVELS[floor_order[0]-1]);
 			setCarMotorStopped(1);
 		}
 		
@@ -174,7 +173,7 @@ static void plannerTask(void *params) {
 		// get counter value and proceed if greater than 1s 
 		xTimeAtFloor = xTaskGetTickCount()-xStoppedAt; 
 		if(is_stopped != 1 && is_target_set != 1 && xTimeAtFloor/portTICK_RATE_MS > WAIT_FLOOR_MS && doors_closed) {
-			printf("Time at floor %lu \n", xTimeAtFloor);
+			//printf("Time at floor %lu \n", xTimeAtFloor);
 			if (floor_order[0] != 0) {
 				setCarMotorStopped(0);
 				setCarTargetPosition(FLOOR_LEVELS[floor_order[0]-1]);
