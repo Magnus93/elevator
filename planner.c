@@ -77,9 +77,6 @@ void addFloor2() {
 
 /* Adds 'floor' to the floor order 
 * 	PRE: 	FLOOR is 1, 2 or 3 
-		OBS!!! - look at snip
-			current:		{3,1,0} -> {3,1,2}
-			should be:	{3,1,0} -> {3,2,1}
 */
 void addFloor (int floor) {
 	// checks if floor is already called 
@@ -121,6 +118,16 @@ void removeFloor () {
 	}
 }
 
+/*  Checks if the elevator is already at the floor
+ *  it's being called to.If yes, that floor call is
+ *  removed.
+*/
+void checkFloorPos(int floor){
+	if(FLOOR_LEVELS[floor-1] == getCarPosition()){
+		removeFloor();
+	}
+}
+
 void handleEvent(PinEvent evt) {
 	switch( (int) evt ) {
 		case(STOP_PRESSED) : 
@@ -130,9 +137,9 @@ void handleEvent(PinEvent evt) {
 			setCarMotorStopped(0); 
 			is_target_set = 0; 
 			break;
-		case(TO_FLOOR_1): addFloor(1); print_floor_order(); break;
-		case(TO_FLOOR_2): addFloor(2); print_floor_order(); break;
-		case(TO_FLOOR_3): addFloor(3); print_floor_order(); break;
+		case(TO_FLOOR_1): addFloor(1); checkFloorPos(1); print_floor_order(); break;
+		case(TO_FLOOR_2): addFloor(2); checkFloorPos(2); print_floor_order(); break;
+		case(TO_FLOOR_3): addFloor(3); checkFloorPos(3); print_floor_order(); break;
 		case(ARRIVED_AT_FLOOR): 
 			//	floor_order not empty AND position at floor level+-1
 			if (floor_order[0] != 0 && FLOOR_LEVELS[floor_order[0]-1] - 1 <= getCarPosition() && getCarPosition() <= FLOOR_LEVELS[floor_order[0]-1] + 1) {
@@ -149,7 +156,7 @@ void handleEvent(PinEvent evt) {
 static void plannerTask(void *params) {
 	xLastWakeTime = xTaskGetTickCount();
 	for(;;){
-		if(xQueueReceive(pinEventQueue, &event, WAIT_EVENT_MS) == pdPASS){
+		if(xQueueReceive(pinEventQueue,&event, WAIT_EVENT_MS) == pdPASS){
 			printf("Event recieved: %s, pos: %lu\n", event_str(event), getCarPosition());
 			handleEvent(event);
 		}
