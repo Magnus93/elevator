@@ -1,307 +1,315 @@
 Dependencies for Project 'lab_env', Target 'Target 1': (DO NOT MODIFY !)
-F (.\STM32F10x.s)(0x5BEBE7B9)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\stm32f10x.lst --xref -o .\stm32f10x.o --depend .\stm32f10x.d)
-F (.\STM32F10xFWLib\src\stm32f10x_gpio.c)(0x5BEBE7BA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_gpio.o --omf_browse .\stm32f10x_gpio.crf --depend .\stm32f10x_gpio.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\stm32f10x_lib.c)(0x5BEBE7BA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_lib.o --omf_browse .\stm32f10x_lib.crf --depend .\stm32f10x_lib.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\stm32f10x_nvic.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_nvic.o --omf_browse .\stm32f10x_nvic.crf --depend .\stm32f10x_nvic.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\stm32f10x_rcc.c)(0x5BEBE7BA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_rcc.o --omf_browse .\stm32f10x_rcc.crf --depend .\stm32f10x_rcc.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\stm32f10x_spi.c)(0x5BEBE7BA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_spi.o --omf_browse .\stm32f10x_spi.crf --depend .\stm32f10x_spi.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\stm32f10x_systick.c)(0x5BEBE7BA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_systick.o --omf_browse .\stm32f10x_systick.crf --depend .\stm32f10x_systick.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\stm32f10x_tim.c)(0x5BEBE7BA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_tim.o --omf_browse .\stm32f10x_tim.crf --depend .\stm32f10x_tim.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\stm32f10x_usart.c)(0x5BEBE7BA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_usart.o --omf_browse .\stm32f10x_usart.crf --depend .\stm32f10x_usart.d)
-I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-F (.\STM32F10xFWLib\src\cortexm3_macro_rvds.s)(0x5BEBE7BA)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\cortexm3_macro_rvds.lst --xref -o .\cortexm3_macro_rvds.o --depend .\cortexm3_macro_rvds.d)
-F (.\main.c)(0x5BEC3330)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (.\STM32F10x.s)(0x5C225014)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\stm32f10x.lst --xref -o .\stm32f10x.o --depend .\stm32f10x.d)
+F (.\STM32F10xFWLib\src\stm32f10x_gpio.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_gpio.o --omf_browse .\stm32f10x_gpio.crf --depend .\stm32f10x_gpio.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\stm32f10x_lib.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_lib.o --omf_browse .\stm32f10x_lib.crf --depend .\stm32f10x_lib.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\stm32f10x_nvic.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_nvic.o --omf_browse .\stm32f10x_nvic.crf --depend .\stm32f10x_nvic.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\stm32f10x_rcc.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_rcc.o --omf_browse .\stm32f10x_rcc.crf --depend .\stm32f10x_rcc.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\stm32f10x_spi.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_spi.o --omf_browse .\stm32f10x_spi.crf --depend .\stm32f10x_spi.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\stm32f10x_systick.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_systick.o --omf_browse .\stm32f10x_systick.crf --depend .\stm32f10x_systick.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\stm32f10x_tim.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_tim.o --omf_browse .\stm32f10x_tim.crf --depend .\stm32f10x_tim.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\stm32f10x_usart.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\stm32f10x_usart.o --omf_browse .\stm32f10x_usart.crf --depend .\stm32f10x_usart.d)
+I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+F (.\STM32F10xFWLib\src\cortexm3_macro_rvds.s)(0x5BED6725)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\cortexm3_macro_rvds.lst --xref -o .\cortexm3_macro_rvds.o --depend .\cortexm3_macro_rvds.d)
+F (.\main.c)(0x5C17B36B)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (setup.h)(0x5BEBE7B9)
-I (stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BEBE7BA)
-I (global.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (pin_listener.h)(0x5BEBE7B9)
-I (position_tracker.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\semphr.h)(0x5BEBE7B9)
-I (motor.h)(0x5BEBE7B9)
-I (planner.h)(0x5BEBE7B9)
-I (safety.h)(0x5BEBE7B9)
-I (assert.h)(0x5BEBE7B9)
-F (.\setup.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\setup.o --omf_browse .\setup.crf --depend .\setup.d)
-I (setup.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+I (setup.h)(0x5BED6725)
+I (stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BED6725)
+I (global.h)(0x5C17B70E)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (pin_listener.h)(0x5BED6725)
+I (position_tracker.h)(0x5C123957)
+I (.\FreeRTOS\inc\semphr.h)(0x5BED6725)
+I (motor.h)(0x5BED6725)
+I (planner.h)(0x5BED6725)
+I (safety.h)(0x5BED6725)
+I (assert.h)(0x5BF44BCB)
+F (.\setup.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\setup.o --omf_browse .\setup.crf --depend .\setup.d)
+I (setup.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\serial.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_it.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BEBE7BA)
-F (.\pin_listener.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\pin_listener.o --omf_browse .\pin_listener.crf --depend .\pin_listener.d)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (.\FreeRTOS\inc\serial.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_it.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BED6725)
+F (.\pin_listener.c)(0x5C236943)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\pin_listener.o --omf_browse .\pin_listener.crf --depend .\pin_listener.d)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (pin_listener.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (global.h)(0x5BEBE7B9)
-I (assert.h)(0x5BEBE7B9)
-F (.\position_tracker.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\position_tracker.o --omf_browse .\position_tracker.crf --depend .\position_tracker.d)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
-I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (position_tracker.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\semphr.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (assert.h)(0x5BEBE7B9)
-F (.\motor.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\motor.o --omf_browse .\motor.crf --depend .\motor.d)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
-I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BEBE7BA)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
-I (position_tracker.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\semphr.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (motor.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BEBE7BA)
-I (assert.h)(0x5BEBE7B9)
-F (.\planner.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\planner.o --omf_browse .\planner.crf --depend .\planner.d)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (pin_listener.h)(0x5BED6725)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (global.h)(0x5C17B70E)
+I (assert.h)(0x5BF44BCB)
+F (.\position_tracker.c)(0x5C110D2C)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\position_tracker.o --omf_browse .\position_tracker.crf --depend .\position_tracker.d)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
-I (global.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (planner.h)(0x5BEBE7B9)
-I (assert.h)(0x5BEBE7B9)
-F (.\safety.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\safety.o --omf_browse .\safety.crf --depend .\safety.d)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (position_tracker.h)(0x5C123957)
+I (.\FreeRTOS\inc\semphr.h)(0x5BED6725)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (global.h)(0x5C17B70E)
+I (assert.h)(0x5BF44BCB)
+F (.\motor.c)(0x5C1D15F4)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\motor.o --omf_browse .\motor.crf --depend .\motor.d)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
-I (global.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (assert.h)(0x5BEBE7B9)
-F (.\FreeRTOS\src\heap_2.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\heap_2.o --omf_browse .\heap_2.crf --depend .\heap_2.d)
+I (position_tracker.h)(0x5C123957)
+I (.\FreeRTOS\inc\semphr.h)(0x5BED6725)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (global.h)(0x5C17B70E)
+I (motor.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BED6725)
+I (assert.h)(0x5BF44BCB)
+F (.\planner.c)(0x5C2625A0)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\planner.o --omf_browse .\planner.crf --depend .\planner.d)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
+I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (global.h)(0x5C17B70E)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (planner.h)(0x5BED6725)
+I (assert.h)(0x5BF44BCB)
+F (.\safety.c)(0x5C1FD6D9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\safety.o --omf_browse .\safety.crf --depend .\safety.d)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_tim.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
+I (global.h)(0x5C17B70E)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (assert.h)(0x5BF44BCB)
+F (.\FreeRTOS\src\heap_2.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\heap_2.o --omf_browse .\heap_2.crf --depend .\heap_2.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-F (.\FreeRTOS\src\list.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\list.o --omf_browse .\list.crf --depend .\list.d)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+F (.\FreeRTOS\src\list.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\list.o --omf_browse .\list.crf --depend .\list.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-F (.\FreeRTOS\src\port.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\port.o --omf_browse .\port.crf --depend .\port.d)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+F (.\FreeRTOS\src\port.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\port.o --omf_browse .\port.crf --depend .\port.d)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-F (.\FreeRTOS\src\queue.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\queue.o --omf_browse .\queue.crf --depend .\queue.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599F3DAC)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
-I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\croutine.h)(0x5BEBE7B9)
-F (.\FreeRTOS\src\tasks.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\tasks.o --omf_browse .\tasks.crf --depend .\tasks.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+F (.\FreeRTOS\src\queue.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\queue.o --omf_browse .\queue.crf --depend .\queue.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599F3DAC)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\task.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\list.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\StackMacros.h)(0x5BEBE7B9)
-F (.\FreeRTOS\src\serial.c)(0x5BEBE7B9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\serial.o --omf_browse .\serial.crf --depend .\serial.d)
-I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+I (.\FreeRTOS\inc\croutine.h)(0x5BED6725)
+F (.\FreeRTOS\src\tasks.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\tasks.o --omf_browse .\tasks.crf --depend .\tasks.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599F3DAC)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
-I (.\FreeRTOS\inc\projdefs.h)(0x5BEBE7B9)
-I (.\FreeRTOSConfig.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portable.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\portmacro.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\queue.h)(0x5BEBE7B9)
-I (.\FreeRTOS\inc\semphr.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BEBE7BA)
-I (.\stm32f10x_conf.h)(0x5BEBE7B9)
-I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BEBE7BA)
-I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BEBE7BA)
-I (.\FreeRTOS\inc\serial.h)(0x5BEBE7B9)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\task.h)(0x5BED6725)
+I (.\FreeRTOS\inc\list.h)(0x5BED6725)
+I (.\FreeRTOS\inc\StackMacros.h)(0x5BED6725)
+F (.\FreeRTOS\src\serial.c)(0x5BED6725)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I ..\CORTEX_STM32F103_Keil -I .\STM32F10xFWLib\inc -I .\FreeRTOS\inc -I .-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F10X_MD -DRVDS_ARMCM3_LM3S102-o .\serial.o --omf_browse .\serial.crf --depend .\serial.d)
+I (.\FreeRTOS\inc\FreeRTOS.h)(0x5BED6725)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F3DAC)
+I (.\FreeRTOS\inc\projdefs.h)(0x5BED6725)
+I (.\FreeRTOSConfig.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portable.h)(0x5BED6725)
+I (.\FreeRTOS\inc\portmacro.h)(0x5BED6725)
+I (.\FreeRTOS\inc\mpu_wrappers.h)(0x5BED6725)
+I (.\FreeRTOS\inc\queue.h)(0x5BED6725)
+I (.\FreeRTOS\inc\semphr.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_lib.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_map.h)(0x5BED6725)
+I (.\stm32f10x_conf.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_type.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\cortexm3_macro.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_exti.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_gpio.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_nvic.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_rcc.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_spi.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_systick.h)(0x5BED6725)
+I (.\STM32F10xFWLib\inc\stm32f10x_usart.h)(0x5BED6725)
+I (.\FreeRTOS\inc\serial.h)(0x5BED6725)

@@ -46,7 +46,7 @@ void debounce_rising(PinListener *listener, xQueueHandle pinEventQueue) {
 	pre_value = eventstatus[listener->risingEvent];
 	eventstatus[listener->risingEvent] = nextState(eventstatus[listener->risingEvent], listener->status);
 	if ((eventstatus[listener->risingEvent] == ONON) && (pre_value != ONON)) {
-		if((xQueueSend(pinEventQueue, (void*)&(listener->risingEvent), portMAX_DELAY)) == pdPASS) {
+		if((xQueueSend(pinEventQueue,&(listener->risingEvent), portMAX_DELAY)) == pdPASS) {
 			//printf("sent event: %s\n", event_str(listener->risingEvent));
 		}
 	} 

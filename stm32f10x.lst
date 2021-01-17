@@ -202,7 +202,7 @@ ARM Macro Assembler    Page 4
   120 00000000                 EXPORT           Reset_Handler             [WEAK
 ]
   121 00000000                 IMPORT           __main
-  122 00000000 4805    I       LDR              R0, =__main
+  122 00000000 4805            LDR              R0, =__main
   123 00000002 4700            BX               R0
   124 00000004                 ENDP
   125 00000004         
@@ -442,7 +442,7 @@ ARM Macro Assembler    Page 7
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\stm32f10x.d -o.\stm32f10x.o -I.\RTE\_Target_1 -IC:\Keil_v5\ARM\P
 ACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP
-\2.2.0\Device\Include --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 
+\2.3.0\Device\Include --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 
 1" --predefine="__UVISION_VERSION SETA 526" --predefine="_RTE_ SETA 1" --predef
 ine="STM32F10X_MD SETA 1" --list=.\stm32f10x.lst STM32F10x.s
 
@@ -768,14 +768,6 @@ Symbol: HardFault_Handler
       At line 54 in file STM32F10x.s
       At line 135 in file STM32F10x.s
 
-I 00000000
-
-Symbol: I
-   Definitions
-      At line 122 in file STM32F10x.s
-   Uses
-      None
-Comment: I unused
 I2C1_ER_IRQHandler 00000016
 
 Symbol: I2C1_ER_IRQHandler
@@ -799,12 +791,6 @@ I2C2_ER_IRQHandler 00000016
 Symbol: I2C2_ER_IRQHandler
    Definitions
       At line 251 in file STM32F10x.s
-
-
-
-ARM Macro Assembler    Page 5 Alphabetic symbol ordering
-Relocatable symbols
-
    Uses
       At line 103 in file STM32F10x.s
       At line 207 in file STM32F10x.s
@@ -813,6 +799,12 @@ I2C2_EV_IRQHandler 00000016
 
 Symbol: I2C2_EV_IRQHandler
    Definitions
+
+
+
+ARM Macro Assembler    Page 5 Alphabetic symbol ordering
+Relocatable symbols
+
       At line 250 in file STM32F10x.s
    Uses
       At line 102 in file STM32F10x.s
@@ -864,12 +856,6 @@ Symbol: RCC_IRQHandler
 
 RTCAlarm_IRQHandler 00000016
 
-
-
-
-ARM Macro Assembler    Page 6 Alphabetic symbol ordering
-Relocatable symbols
-
 Symbol: RTCAlarm_IRQHandler
    Definitions
       At line 258 in file STM32F10x.s
@@ -878,6 +864,12 @@ Symbol: RTCAlarm_IRQHandler
       At line 214 in file STM32F10x.s
 
 RTC_IRQHandler 00000016
+
+
+
+ARM Macro Assembler    Page 6 Alphabetic symbol ordering
+Relocatable symbols
+
 
 Symbol: RTC_IRQHandler
    Definitions
@@ -929,12 +921,6 @@ Symbol: SysTick_Handler
    Uses
       At line 167 in file STM32F10x.s
 Comment: SysTick_Handler used once
-
-
-
-ARM Macro Assembler    Page 7 Alphabetic symbol ordering
-Relocatable symbols
-
 TAMPER_IRQHandler 00000016
 
 Symbol: TAMPER_IRQHandler
@@ -943,6 +929,12 @@ Symbol: TAMPER_IRQHandler
    Uses
       At line 71 in file STM32F10x.s
       At line 175 in file STM32F10x.s
+
+
+
+ARM Macro Assembler    Page 7 Alphabetic symbol ordering
+Relocatable symbols
+
 
 TIM1_BRK_IRQHandler 00000016
 
@@ -994,12 +986,6 @@ TIM3_IRQHandler 00000016
 Symbol: TIM3_IRQHandler
    Definitions
       At line 246 in file STM32F10x.s
-
-
-
-ARM Macro Assembler    Page 8 Alphabetic symbol ordering
-Relocatable symbols
-
    Uses
       At line 98 in file STM32F10x.s
       At line 202 in file STM32F10x.s
@@ -1008,6 +994,12 @@ TIM4_IRQHandler 00000016
 
 Symbol: TIM4_IRQHandler
    Definitions
+
+
+
+ARM Macro Assembler    Page 8 Alphabetic symbol ordering
+Relocatable symbols
+
       At line 247 in file STM32F10x.s
    Uses
       At line 99 in file STM32F10x.s
@@ -1059,12 +1051,6 @@ Symbol: USB_HP_CAN_TX_IRQHandler
 
 USB_LP_CAN_RX0_IRQHandler 00000016
 
-
-
-
-ARM Macro Assembler    Page 9 Alphabetic symbol ordering
-Relocatable symbols
-
 Symbol: USB_LP_CAN_RX0_IRQHandler
    Definitions
       At line 237 in file STM32F10x.s
@@ -1073,6 +1059,12 @@ Symbol: USB_LP_CAN_RX0_IRQHandler
       At line 193 in file STM32F10x.s
 
 UsageFault_Handler 0000000C
+
+
+
+ARM Macro Assembler    Page 9 Alphabetic symbol ordering
+Relocatable symbols
+
 
 Symbol: UsageFault_Handler
    Definitions
@@ -1090,7 +1082,7 @@ Symbol: WWDG_IRQHandler
       At line 69 in file STM32F10x.s
       At line 173 in file STM32F10x.s
 
-56 symbols
+55 symbols
 
 
 
@@ -1161,4 +1153,4 @@ Symbol: xPortSysTickHandler
       At line 66 in file STM32F10x.s
 Comment: xPortSysTickHandler used once
 5 symbols
-409 symbols in table
+408 symbols in table

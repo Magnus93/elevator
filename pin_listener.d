@@ -8,6 +8,7 @@
 .\pin_listener.o: .\FreeRTOS\inc\mpu_wrappers.h
 .\pin_listener.o: .\FreeRTOS\inc\task.h
 .\pin_listener.o: .\FreeRTOS\inc\list.h
+.\pin_listener.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\pin_listener.o: pin_listener.h
 .\pin_listener.o: .\FreeRTOS\inc\queue.h
 .\pin_listener.o: .\STM32F10xFWLib\inc\stm32f10x_gpio.h

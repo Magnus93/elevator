@@ -24,6 +24,8 @@
 .\motor.o: position_tracker.h
 .\motor.o: .\FreeRTOS\inc\semphr.h
 .\motor.o: .\FreeRTOS\inc\queue.h
+.\motor.o: global.h
+.\motor.o: .\FreeRTOS\inc\queue.h
 .\motor.o: motor.h
 .\motor.o: .\FreeRTOS\inc\semphr.h
 .\motor.o: .\STM32F10xFWLib\inc\stm32f10x_tim.h
